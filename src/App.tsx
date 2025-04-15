@@ -26,10 +26,14 @@ function App() {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    sendTransaction({
-      to: '0x7562D34B4Cb64ff4A100d4e54f500b3d73C321Ce',
-      value: parseEther('0.001'),
-    });
+    try {
+      sendTransaction({
+        to: '0x7562D34B4Cb64ff4A100d4e54f500b3d73C321Ce',
+        value: parseEther('0.001'),
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
